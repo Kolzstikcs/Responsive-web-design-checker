@@ -1,20 +1,17 @@
     
         document.addEventListener("DOMContentLoaded", function() {
           const range = document.getElementById("range");
+          
           const laptopFrame = document.getElementById("laptopFrame");
-          const W = document.querySelector(".W");
-          const H = document.querySelector(".H");
-        
-          function updateWidthAndHeight() {
-            W.innerText = laptopFrame.offsetWidth;
-            H.innerText = laptopFrame.offsetHeight;
-          }
-        
-         // updateWidthAndHeight();
-        
+          
+          const frameHeader = document.querySelector(".frame-header");
+          
+         frameHeader.innerHTML = `<i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Laptop View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
+          
+          
+          
           range.addEventListener("input", function() {
             laptopFrame.style.width = this.value + "%";
-          //  updateWidthAndHeight();
             updateFrameHeader();
           });
         });
