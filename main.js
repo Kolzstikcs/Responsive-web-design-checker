@@ -43,6 +43,36 @@
           }
         }
         
+        
+     function loadWebsite() {
+    var url = document.getElementById("websiteUrl").value.trim();
+    
+    // Check if the URL is not empty and is a valid URL format
+    if (url !== "" && url.match(/^https?:\/\/.+\..+$/) || url.startsWith("http://localhost")) {
+        const loaderContainer = document.getElementById("loaderContainer");
+        loaderContainer.style.display = "flex";
+        
+        const frames = document.querySelectorAll("iframe");
+        
+        const laptopFrame = document.getElementById("laptopFrame");
+        
+        laptopFrame.src = url;
+        document.getElementById("phoneFrame").src = url;
+        document.getElementById("tabletFrame").src = url;
+        
+        frames.forEach((f) => {
+            f.onload = function() {
+                loaderContainer.style.display = "none";
+            }
+        });
+    } else {
+        alert("URL can't be left empty OR Enter a valid URL.");
+    }
+}   
+        
+        
+        
+        /*
         function loadWebsite() {
           var url = document.getElementById("websiteUrl").value.trim();
           
@@ -72,7 +102,7 @@
           } else {
             alert("URL can't be left empty OR Enter a valid URL.");
           }
-        }
+        }*/
         
         function updateFrameHeader() {
           const laptopFrameWidth = document.getElementById("laptopFrame").offsetWidth;
