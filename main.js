@@ -4,10 +4,13 @@
           
           const laptopFrame = document.getElementById("laptopFrame");
           
-          const frameHeader = document.querySelector(".frame-header");
+          const frameHeader = document.querySelectorAll(".frame-header");
           
-         frameHeader.innerHTML = `<i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Laptop View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
+          frameHeader.forEach((f)=>{
+            f.innerHTML = `<i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Laptop View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
           
+          })
+         
           
           
           range.addEventListener("input", function() {
@@ -42,13 +45,32 @@
         
         function loadWebsite() {
           var url = document.getElementById("websiteUrl").value.trim();
+          
+          
+          
           if (url !== "" && url.match(/^https?:\/\/.+\..+$/)) {
+            const loaderContainer = document.getElementById("loaderContainer");
+            loaderContainer.style.display = "flex";
+            
+            const frames = document.querySelectorAll("iframe");
+           
             const laptopFrame = document.getElementById("laptopFrame");
+            
             laptopFrame.src = url;
             document.getElementById("phoneFrame").src = url;
             document.getElementById("tabletFrame").src = url;
+            
+            
+
+            frames.forEach((f)=>{
+              f.onload = function() {
+           loaderContainer.style.display = "none";
+              }
+            })
+                    
+            
           } else {
-            alert("Please enter a valid URL.");
+            alert("URL can't be left empty OR Enter a valid URL.");
           }
         }
         
@@ -57,12 +79,25 @@
           
           const laptopFrameHeight = document.getElementById("laptopFrame").offsetHeight;
           
-          const frameHeader = document.querySelector(".frame-header");
+          const frameHeader = document.querySelectorAll(".frame-header");
+          
+          
+          
           if (laptopFrameWidth <= 375) {
-            frameHeader.innerHTML = `<i class="fa-solid fa-mobile-screen-button" style="color: #ffffff;"></i> Phone/mobile view ${laptopFrameWidth}px x ${laptopFrameHeight}px `;
+            frameHeader.forEach((f) => {
+              f.innerHTML = `<i class="fa-solid fa-mobile" style="color: #ffffff;"></i> Phone View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
+            
+            })
+           
           } else if (laptopFrameWidth <= 768) {
-            frameHeader.innerHTML = `<i class="fa-solid fa-tablet-screen-button" style="color: #ffffff;"></i> Tablet view ${laptopFrameWidth}px x ${laptopFrameHeight}px `;
+            frameHeader.forEach((f) => {
+              f.innerHTML = `<i class="fa-solid fa-tablet" style="color: #ffffff;"></i> Tablet View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
+            
+            })
           } else {
-            frameHeader.innerHTML = `<i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Laptop View ${laptopFrameWidth}px x ${laptopFrameHeight}px `;
+            frameHeader.forEach((f)=>{
+            f.innerHTML = `<i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Laptop View ${laptopFrame.offsetWidth}px x ${laptopFrame.offsetHeight}px `;
+          
+          })
           }
         }

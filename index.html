@@ -8,18 +8,25 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+          <h1><img class="top-img" src="/kolz_splash.png">
+          <span>Live Responsive Web Design Checker</span>
+          </h1>
+          
+           <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
     <div class="container">
-        <h1>Live Responsive Web Design Checker</h1>
-        
+
         <div class="top">
-      <!--  <div>
-        <!--    Width: <span class="W"></span><br>
-            Height: <span class="H"></span>
-        </div>-->
+  
         <select name="" id="select" onchange="viewChange(this)">
           <option value="1">Default view</option>
-          <option value="2">3 mode view</option>
+          <option value="2">Triple mode view</option>
         </select>
+        <div class="frame-header Top-frame">
+          
+        </div>
         </div>
         
         
@@ -32,14 +39,14 @@
         
         
       <div class="frame frame-phone">
-            <div class="frame-header"><i class="fa-solid fa-mobile" style="color: #ffffff;"></i> Phone View</div>
+            <div class="frame-header-phone"><i class="fa-solid fa-mobile" style="color: #ffffff;"></i> Phone View 375px x 666px</div>
             <div class="frame-content">
                 <iframe id="phoneFrame" src="" width="375" height="666" frameborder="0"></iframe>
             </div>
         </div>
 
         <div class="frame frame-tablet">
-            <div class="frame-header"><i class="fa-solid fa-tablet" style="color: #ffffff;"></i> Tablet View</div>
+            <div class="frame-header-tablet"><i class="fa-solid fa-tablet" style="color: #ffffff;"></i> Tablet View 768px x 1024px</div>
             <div class="frame-content">
                 <iframe id="tabletFrame" src="" width="768" height="600" frameborder="0"></iframe>
             </div>
@@ -48,7 +55,7 @@
         
 
         <div class="rparent">
-            <input class="range" id="range" value="100" min="35" max="100" type="range">
+            <input class="range" id="range" value="100" min="38" max="100" type="range">
         </div>
         <br><br>
    
