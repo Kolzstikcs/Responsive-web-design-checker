@@ -177,7 +177,7 @@ footer {
 }
 
 .contact-info p, .social-link {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .social-link {
@@ -248,3 +248,11 @@ footer {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        
+        /* Style for copyright */
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
